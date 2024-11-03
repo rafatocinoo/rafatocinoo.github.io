@@ -7,10 +7,10 @@
 </head>
 <body>
     <div class="container">
-        <h1>Documentaciones de Ciberseguridad</h1>
-        <div class="image-container">
+         <div class="image-container">
             <img src="imagen-ejemplo.jpg" alt="Imagen de Seguridad" class="center-image">
         </div>
+        <h1>Documentaciones de Ciberseguridad</h1>
         <div class="links">
             <a href="#" class="button">Enlace 1</a>
             <a href="#" class="button">Enlace 2</a>
