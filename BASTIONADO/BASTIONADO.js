@@ -1,19 +1,15 @@
-// Seleccionamos los elementos relevantes
-document.addEventListener('DOMContentLoaded', () => {
-    const links = document.querySelectorAll('.button');
-    const descriptionBox = document.getElementById('description-box');
+document.querySelectorAll('.project').forEach(item => {
+    item.addEventListener('click', () => {
+        const url = item.getAttribute('data-url');
+        window.location.href = url;  // Redirige a la URL especificada
+    });
 
-    // Añadimos un evento para cada enlace
-    links.forEach(link => {
-        link.addEventListener('mouseover', () => {
-            // Obtenemos la descripción del atributo `data-description`
-            const description = link.getAttribute('data-description');
-            descriptionBox.textContent = description;
-        });
+    item.addEventListener('mouseenter', () => {
+        const description = item.getAttribute('data-description');
+        document.getElementById('description-box').innerText = description; // Muestra la descripción
+    });
 
-        link.addEventListener('mouseout', () => {
-            // Restauramos el contenido del cuadro de descripción al estado inicial
-            descriptionBox.textContent = 'Pasa el cursor por los proyectos para ver la descripción aquí';
-        });
+    item.addEventListener('mouseleave', () => {
+        document.getElementById('description-box').innerText = "Pasa el cursor por los proyectos para ver la descripción aquí"; // Restablece el texto
     });
 });
