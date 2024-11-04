@@ -13,3 +13,4 @@ document.querySelectorAll('.project').forEach(item => {
         document.getElementById('description-box').innerText = "Pasa el cursor por los proyectos para ver la descripción aquí"; // Restablece el texto
     });
 });
+
