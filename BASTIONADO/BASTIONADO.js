@@ -1,16 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
     const buttons = document.querySelectorAll('.button');
-    const descriptionBox = document.getElementById('description-box');
 
     buttons.forEach(button => {
+        // Guardar el texto original del botón
+        const originalText = button.textContent;
+        const description = button.getAttribute('data-description');
+
         button.addEventListener('mouseover', function() {
-            const description = button.getAttribute('data-description');
-            descriptionBox.textContent = description;
-            descriptionBox.style.display = 'block';
+            button.textContent = description; // Mostrar la descripción en el botón
         });
 
         button.addEventListener('mouseout', function() {
-            descriptionBox.style.display = 'none';
+            button.textContent = originalText; // Restaurar el texto original
         });
     });
 });
