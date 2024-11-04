@@ -1,53 +1,47 @@
 body {
     margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #000000, #0000ff);
     font-family: Arial, sans-serif;
-    color: #FFFF00; /* Color del texto en amarillo fosforescente */
+    background: linear-gradient(to bottom, black, purple);
+    color: white;
     text-align: center;
 }
 
 .container {
-    max-width: 800px;
-    width: 100%;
+    padding: 50px;
 }
 
 h1 {
-    margin-bottom: 20px;
-    color: #FFFF00;
+    font-size: 2.5em;
+    margin-bottom: 40px;
 }
 
-.links {
+.projects {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
+    align-items: center;
 }
 
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    border: 2px solid #FFFF00;
-    color: #FFFF00;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s;
-    position: relative;
+.project {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin: 10px;
+    width: 200px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
 }
 
-.button:hover {
-    background: rgba(255, 255, 255, 0.2);
+.project:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 #description-box {
     margin-top: 20px;
     padding: 10px;
-    border: 2px solid #FFFF00;
+    border: 1px solid white;
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
-    display: none;
-    color: #FFFF00;
+    width: 300px;
+    display: inline-block;
 }
