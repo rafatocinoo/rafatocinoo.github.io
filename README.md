@@ -8,7 +8,7 @@
 <body>
     <div class="container">
          <div class="image-container">
-            <img src="/img/portada.png" alt="Imagen de Seguridad" class="center-image">
+            <img src="/img/portada.png" alt="Imagen de Seguridad" class="resized-image">
         </div>
         <h1>Documentaciones de Ciberseguridad</h1>
         <div class="links">
