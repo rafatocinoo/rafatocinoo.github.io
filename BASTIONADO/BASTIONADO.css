@@ -25,10 +25,11 @@ h1 {
     background-color: rgba(255, 255, 255, 0.1);
     padding: 20px;
     margin: 10px;
-    width: 200px;
+    width: 250px;
     border-radius: 10px;
     transition: transform 0.3s ease, background-color 0.3s ease;
     cursor: pointer;
+    position: relative;
 }
 
 .project:hover {
@@ -36,13 +37,13 @@ h1 {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-#description-box {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid white;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-    width: 300px;
-    display: inline-block;
+.description {
+    margin-top: 10px;
+    display: none; /* Ocultar por defecto */
 }
+
+.project:hover .description {
+    display: block; /* Mostrar al pasar el cursor */
+}
+
 
