@@ -47,3 +47,8 @@ h1 {
 }
 
 
+.project:hover .description {
+    display: block; /* Mostrar al pasar el cursor */
+}
+
+
