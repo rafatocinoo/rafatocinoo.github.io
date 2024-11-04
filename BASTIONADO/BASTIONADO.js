@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const description = button.getAttribute('data-description');
 
         button.addEventListener('mouseover', function() {
-            button.textContent = description; // Mostrar la descripción en el botón
+            button.innerHTML = `<span>${description}</span>`; // Mostrar la descripción dentro del botón
         });
 
         button.addEventListener('mouseout', function() {
