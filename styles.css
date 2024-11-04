@@ -50,7 +50,7 @@ h1 {
     background: rgba(255, 255, 255, 0.2);
 }
 .resized-image {
-    max-width: 50%; /* Cambia este valor para hacer la imagen más o menos pequeña */
+    max-width: 10%; /* Cambia este valor para hacer la imagen más o menos pequeña */
     height: auto;
     border: 2px solid #ffffff; /* Opcional: un borde blanco */
     border-radius: 8px; /* Opcional: esquinas redondeadas */
