@@ -1,59 +1,37 @@
 body {
     margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #000000, #0000ff);
     font-family: Arial, sans-serif;
-    color: #FFFF00; /* Color del texto en amarillo fosforescente */
+    background: linear-gradient(to bottom, black, purple);
+    color: white;
     text-align: center;
 }
 
 .container {
-    max-width: 800px;
-    width: 100%;
+    padding: 50px;
 }
 
 h1 {
-    margin-bottom: 20px;
-    color: #FFFF00; /* Color amarillo fosforescente para el encabezado */
+    font-size: 2.5em;
+    margin-bottom: 40px;
 }
 
-.image-container {
-    margin: 20px 0;
-}
-
-.center-image {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-}
-
-.links {
+.subjects {
     display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
 }
 
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    border: 2px solid white; /* Mantiene el color blanco en el borde */
-    color: #FFFF00; /* Color amarillo fosforescente en el texto del botón */
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s;
+.subject {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin: 10px;
+    width: 200px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
 }
 
-.button:hover {
-    background: rgba(255, 255, 255, 0.2); /* Mantiene el fondo semitransparente blanco al pasar el ratón */
-}
-
-.resized-image {
-    max-width: 30%; /* Cambia este valor para hacer la imagen más o menos pequeña */
-    height: auto;
-    border: 2px solid #ffffff; /* Borde blanco */
-    border-radius: 8px; /* Esquinas redondeadas */
+.subject:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.2);
 }
