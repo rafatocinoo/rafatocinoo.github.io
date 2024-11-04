@@ -1,17 +1,19 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const buttons = document.querySelectorAll('.button');
+// Seleccionamos los elementos relevantes
+document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('.button');
+    const descriptionBox = document.getElementById('description-box');
 
-    buttons.forEach(button => {
-        // Guardar el texto original del botón
-        const originalText = button.textContent;
-        const description = button.getAttribute('data-description');
-
-        button.addEventListener('mouseover', function() {
-            button.innerHTML = `<span>${description}</span>`; // Mostrar la descripción dentro del botón
+    // Añadimos un evento para cada enlace
+    links.forEach(link => {
+        link.addEventListener('mouseover', () => {
+            // Obtenemos la descripción del atributo `data-description`
+            const description = link.getAttribute('data-description');
+            descriptionBox.textContent = description;
         });
 
-        button.addEventListener('mouseout', function() {
-            button.textContent = originalText; // Restaurar el texto original
+        link.addEventListener('mouseout', () => {
+            // Restauramos el contenido del cuadro de descripción al estado inicial
+            descriptionBox.textContent = 'Pasa el cursor por los proyectos para ver la descripción aquí';
         });
     });
 });
