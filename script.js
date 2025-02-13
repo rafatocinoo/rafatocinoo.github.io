@@ -1,6 +1,13 @@
-document.querySelectorAll('.subject').forEach(item => {
-    item.addEventListener('click', () => {
-        const url = item.getAttribute('data-url');
-        window.location.href = url;  // Redirige a la URL especificada
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".subject").forEach(subject => {
+        subject.addEventListener("click", () => {
+            window.location.href = subject.getAttribute("data-url");
+        });
+
+        subject.addEventListener("keypress", (event) => {
+            if (event.key === "Enter") {
+                window.location.href = subject.getAttribute("data-url");
+            }
+        });
     });
 });
