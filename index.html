@@ -12,11 +12,15 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         header {
             background-color: #1e1e1e;
             padding: 20px;
             text-align: center;
+            width: 100%;
         }
         nav ul {
             list-style: none;
@@ -30,22 +34,34 @@
             color: #ffffff;
             text-decoration: none;
         }
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
+            width: 80%;
+            margin-top: 20px;
+        }
         .profile {
-            text-align: center;
-            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            text-align: right;
+            flex: 1;
         }
         .profile img {
-            width: 100px;
+            width: 120px;
             border-radius: 50%;
         }
-        .social-links a {
-            color: #1e90ff;
-            margin: 0 10px;
-            text-decoration: none;
+        .social-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        .social-links ul li {
+            margin: 5px 0;
         }
         .articles {
-            max-width: 800px;
-            margin: auto;
+            flex: 2;
             padding: 20px;
         }
         .articles article {
@@ -61,6 +77,19 @@
         .articles img {
             width: 100%;
             border-radius: 8px;
+        }
+        @media screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .profile {
+                align-items: center;
+                text-align: center;
+            }
+            .articles {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -79,16 +108,18 @@
             </ul>
         </nav>
     </header>
-    <main>
+    <div class="container">
         <section class="profile">
             <img src="profile.jpg" alt="Foto de perfil">
             <h2>S4vitar</h2>
             <p>CyberSecurity Analyst - Certificaciones: OSCP, OSWP, eWPTXv2...</p>
             <div class="social-links">
-                <a href="#">Twitter</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">GitHub</a>
-                <a href="#">YouTube</a>
+                <ul>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
             </div>
         </section>
         <section class="articles">
@@ -104,7 +135,7 @@
                 <img src="certification.jpg" alt="Certificación eWPTXv2">
             </article>
         </section>
-    </main>
+    </div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const articles = document.querySelectorAll(".articles article");
@@ -117,9 +148,3 @@
     </script>
 </body>
 </html>
-
-
-    <script src="script.js"></script>
-</body>
-</html>
-
