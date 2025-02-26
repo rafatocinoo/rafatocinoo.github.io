@@ -5,6 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog de Ciberseguridad</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #1e1e1e;
+            padding: 20px;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .profile {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .profile img {
+            width: 100px;
+            border-radius: 50%;
+        }
+        .social-links a {
+            color: #1e90ff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .articles {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        .articles article {
+            background-color: #1e1e1e;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: transform 0.3s;
+        }
+        .articles article:hover {
+            transform: scale(1.05);
+        }
+        .articles img {
+            width: 100%;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -47,7 +105,16 @@
             </article>
         </section>
     </main>
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const articles = document.querySelectorAll(".articles article");
+            articles.forEach(article => {
+                article.addEventListener("click", () => {
+                    alert("Has hecho clic en un artículo: " + article.querySelector("h3").textContent);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
 
