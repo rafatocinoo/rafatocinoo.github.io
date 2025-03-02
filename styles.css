@@ -1,0 +1,153 @@
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: #1e1e1e;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+/* Efecto de brillo lila al pasar el cursor */
+nav ul li a:hover {
+    text-shadow: 0 0 8px #d400ff, 0 0 12px #d400ff;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    width: 80%;
+    margin-top: 20px;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    flex: 1;
+}
+
+/* Imagen de perfil con borde lila */
+.profile img {
+    width: 120px;
+    border-radius: 10px;
+    border: 2px solid #d400ff;
+}
+
+.social-links ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fade-in 1s ease-in-out;
+}
+
+/* Animación de entrada */
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.social-links ul li {
+    margin: 5px 0;
+}
+
+/* Logo de LinkedIn */
+.social-links ul li a {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+.social-links ul li a:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos para el icono de LinkedIn */
+.social-links ul li a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.articles {
+    flex: 2;
+    padding: 20px;
+}
+
+.articles article {
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+}
+
+.articles article:hover {
+    transform: scale(1.05);
+}
+
+/* Animación */
+.scale-up-center {
+    animation: scale-up-center 0.4s;
+}
+
+@keyframes scale-up-center {
+    0% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .profile {
+        align-items: center;
+        text-align: center;
+    }
+    .articles {
+        width: 100%;
+    }
+}
