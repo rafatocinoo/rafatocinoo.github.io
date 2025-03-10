@@ -1,153 +1,463 @@
+:root {
+  --bg-color-light: #f5f5f5;
+  --text-color-light: #333333;
+  --accent-color-light: #6200ea;
+  --card-bg-light: #ffffff;
+  --hover-light: #f0f0f0;
+
+  --bg-color-dark: #121212;
+  --text-color-dark: #ffffff;
+  --accent-color-dark: #bb86fc;
+  --card-bg-dark: #1e1e1e;
+  --hover-dark: #2c2c2c;
+
+  --stripe-height: 60px;
+  --transition-speed: 0.3s;
+  --border-radius: 10px;
+}
+
+/* Base Styles */
 body {
-    background-color: #121212;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
+  font-family: "Roboto", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
-header {
-    background-color: #1e1e1e;
-    padding: 20px;
-    text-align: center;
-    width: 100%;
+/* Dark Mode */
+body.dark-mode {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
+body.dark-mode a {
+  color: var(--accent-color-dark);
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+body.dark-mode .articles article {
+  background-color: var(--card-bg-dark);
 }
 
-nav ul li a {
-    color: #ffffff;
-    text-decoration: none;
-    transition: text-shadow 0.3s ease-in-out;
+body.dark-mode .profile-card {
+  background-color: var(--card-bg-dark);
 }
 
-/* Efecto de brillo lila al pasar el cursor */
-nav ul li a:hover {
-    text-shadow: 0 0 8px #d400ff, 0 0 12px #d400ff;
+body.dark-mode .theme-switch {
+  background-color: var(--card-bg-dark);
 }
 
+body.dark-mode .switch-handle {
+  background-color: var(--accent-color-dark);
+}
+
+/* Header */
+.top-stripe {
+  height: var(--stripe-height);
+  background-color: var(--accent-color-light);
+  transition: background-color var(--transition-speed);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+body.dark-mode .top-stripe {
+  background-color: var(--accent-color-dark);
+}
+
+/* Back Link */
+.back-link {
+  background-color: transparent;
+  border: 2px solid var(--bg-color-light);
+  color: var(--bg-color-light);
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-speed);
+  text-decoration: none;
+}
+
+.back-link:hover {
+  background-color: var(--bg-color-light);
+  color: var(--accent-color-light);
+  transform: scale(1.05);
+}
+
+body.dark-mode .back-link {
+  border-color: var(--bg-color-dark);
+  color: var(--bg-color-dark);
+}
+
+body.dark-mode .back-link:hover {
+  background-color: var(--bg-color-dark);
+  color: var(--accent-color-dark);
+}
+
+/* Theme Switch */
+.theme-switch {
+  position: relative;
+  width: 50px;
+  height: 25px;
+  border-radius: 15px;
+  background-color: var(--bg-color-light);
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+}
+
+.switch-handle {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 21px;
+  height: 21px;
+  background-color: var(--accent-color-light);
+  border-radius: 50%;
+  transition: transform var(--transition-speed);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+body.dark-mode .switch-handle {
+  transform: translateX(25px);
+}
+
+/* Main Container */
 .container {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
-    width: 80%;
-    margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  flex: 1;
 }
 
+/* Profile Section */
 .profile {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    text-align: right;
-    flex: 1;
+  flex: 1;
+  min-width: 250px;
 }
 
-/* Imagen de perfil con borde lila */
-.profile img {
-    width: 120px;
-    border-radius: 10px;
-    border: 2px solid #d400ff;
+.profile-card {
+  background-color: var(--card-bg-light);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: background-color var(--transition-speed);
 }
 
+.profile-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--accent-color-light);
+  transition: border-color var(--transition-speed);
+}
+
+body.dark-mode .profile-image {
+  border-color: var(--accent-color-dark);
+}
+
+.job-title {
+  color: var(--accent-color-light);
+  font-weight: 500;
+  margin-top: 0;
+}
+
+body.dark-mode .job-title {
+  color: var(--accent-color-dark);
+}
+
+/* Social Links */
 .social-links ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: fade-in 1s ease-in-out;
-}
-
-/* Animación de entrada */
-@keyframes fade-in {
-    0% {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fade-in 1s ease-in-out;
 }
 
 .social-links ul li {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 
-/* Logo de LinkedIn */
 .social-links ul li a {
-    display: flex;
-    align-items: center;
-    color: #ffffff;
-    text-decoration: none;
-    transition: transform 0.3s;
+  display: flex;
+  align-items: center;
+  color: var(--text-color-light);
+  text-decoration: none;
+  transition: transform var(--transition-speed);
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
 }
 
 .social-links ul li a:hover {
-    transform: scale(1.1);
+  transform: scale(1.05);
+  background-color: var(--hover-light);
 }
 
-/* Estilos para el icono de LinkedIn */
+body.dark-mode .social-links ul li a {
+  color: var(--text-color-dark);
+}
+
+body.dark-mode .social-links ul li a:hover {
+  background-color: var(--hover-dark);
+}
+
 .social-links ul li a img {
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
 }
 
+/* Content Section */
+.content {
+  flex: 2;
+  min-width: 300px;
+}
+
+/* Search Container */
+.search-container {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+#search-input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 2px solid var(--accent-color-light);
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+  font-size: 16px;
+  outline: none;
+  transition: border-color var(--transition-speed);
+}
+
+body.dark-mode #search-input {
+  border-color: var(--accent-color-dark);
+  background-color: var(--card-bg-dark);
+  color: var(--text-color-dark);
+}
+
+#search-button {
+  background-color: var(--accent-color-light);
+  color: white;
+  border: none;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  padding: 0 15px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+}
+
+body.dark-mode #search-button {
+  background-color: var(--accent-color-dark);
+}
+
+/* Articles Section */
 .articles {
-    flex: 2;
-    padding: 20px;
+  margin-bottom: 30px;
 }
 
-.articles article {
-    background-color: #1e1e1e;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    transition: transform 0.3s;
+.articles h2 {
+  border-bottom: 2px solid var(--accent-color-light);
+  padding-bottom: 10px;
+  transition: border-color var(--transition-speed);
 }
 
-.articles article:hover {
-    transform: scale(1.05);
+body.dark-mode .articles h2 {
+  border-color: var(--accent-color-dark);
 }
 
-/* Animación */
-.scale-up-center {
-    animation: scale-up-center 0.4s;
+.machines-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
 }
 
-@keyframes scale-up-center {
-    0% {
-        transform: scale(0.5);
-    }
-    100% {
-        transform: scale(1);
-    }
+.machine {
+  background-color: var(--card-bg-light);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-speed), background-color var(--transition-speed);
+  opacity: 0;
+  animation: fade-in 0.5s ease-in-out forwards;
 }
 
-/* Responsive */
+.machine:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.machine h3 {
+  margin-top: 0;
+  color: var(--accent-color-light);
+}
+
+body.dark-mode .machine h3 {
+  color: var(--accent-color-dark);
+}
+
+.difficulty {
+  margin: 15px 0;
+}
+
+.difficulty-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.difficulty-bar {
+  height: 10px;
+  background-color: var(--accent-color-light);
+  border-radius: 5px;
+  transition: background-color var(--transition-speed);
+}
+
+body.dark-mode .difficulty-bar {
+  background-color: var(--accent-color-dark);
+}
+
+.machine a {
+  color: var(--accent-color-light);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition-speed);
+}
+
+.machine a:hover {
+  text-decoration: underline;
+}
+
+body.dark-mode .machine a {
+  color: var(--accent-color-dark);
+}
+
+/* Navigation */
+.main-nav {
+  flex: 1;
+  min-width: 200px;
+}
+
+.main-nav h2 {
+  border-bottom: 2px solid var(--accent-color-light);
+  padding-bottom: 10px;
+  transition: border-color var(--transition-speed);
+}
+
+body.dark-mode .main-nav h2 {
+  border-color: var(--accent-color-dark);
+}
+
+.main-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.main-nav ul li {
+  margin-bottom: 10px;
+}
+
+.main-nav ul li a {
+  display: block;
+  padding: 10px 15px;
+  color: var(--text-color-light);
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed), color var(--transition-speed), transform var(--transition-speed);
+}
+
+.main-nav ul li a:hover {
+  background-color: var(--accent-color-light);
+  color: white;
+  transform: translateX(5px);
+}
+
+body.dark-mode .main-nav ul li a {
+  color: var(--text-color-dark);
+}
+
+body.dark-mode .main-nav ul li a:hover {
+  background-color: var(--accent-color-dark);
+}
+
+/* Footer */
+footer {
+  background-color: var(--accent-color-light);
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 30px;
+  transition: background-color var(--transition-speed);
+}
+
+body.dark-mode footer {
+  background-color: var(--accent-color-dark);
+}
+
+/* Animations */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
 @media screen and (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
-    .profile {
-        align-items: center;
-        text-align: center;
-    }
-    .articles {
-        width: 100%;
-    }
+  .container {
+    flex-direction: column;
+  }
+
+  .profile,
+  .content,
+  .main-nav {
+    width: 100%;
+  }
+
+  .machines-container {
+    grid-template-columns: 1fr;
+  }
+
+  .main-nav ul li a:hover {
+    transform: translateX(0);
+  }
 }
+
+@media screen and (max-width: 480px) {
+  .top-stripe {
+    padding: 0 10px;
+  }
+
+  .container {
+    width: 95%;
+  }
+}
+
+
