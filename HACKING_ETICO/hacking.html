@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog de ciberseguridad por Rafa Tocino, especialista en seguridad informática">
+    <meta name="keywords" content="ciberseguridad, hacking ético, análisis forense, bastionado, seguridad informática">
+    <meta name="author" content="Rafa Tocino">
+    <title>Blog de Ciberseguridad | Rafa Tocino</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="hacking.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="top-stripe">
+        <a href="index.html" class="back-link" aria-label="Volver al inicio">&larr;</a>
+        <div class="theme-switch" role="button" tabindex="0" aria-label="Cambiar tema">
+            <div class="switch-handle">🌙</div>
+        </div>
+    </header>
+
+    <main class="container">
+        <aside class="profile">
+            <div class="profile-card">
+                <img src="img/me.jpg" alt="Foto de perfil de Rafa Tocino" class="profile-image">
+                <h1>Rafa Tocino</h1>
+                <p class="job-title">CyberSecurity Specialist</p>
+                <div class="social-links">
+                    <ul>
+                        <li>
+                            <a href="https://www.linkedin.com/in/rafatocino/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Rafa Tocino">
+                                <img src="img/linkedin-icon.png" alt="LinkedIn">
+                                <span>LinkedIn</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <section class="content">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Buscar máquinas..." aria-label="Buscar máquinas">
+                <button id="search-button" aria-label="Buscar">🔍</button>
+            </div>
+
+            <section class="articles">
+                <h2>Máquinas Recientes</h2>
+                <div class="machines-container">
+                    <article class="machine">
+                        <h3>Blue</h3>
+                        <div class="difficulty">
+                            <span class="difficulty-label">Dificultad:</span>
+                            <div class="difficulty-bar" style="width: 60%;" aria-label="Dificultad media"></div>
+                        </div>
+                        <p><a href="https://tryhackme.com/room/blue" target="_blank" rel="noopener noreferrer">Enlace a la máquina en THM</a></p>
+                    </article>
+                    <article class="machine">
+                        <h3>Ice</h3>
+                        <div class="difficulty">
+                            <span class="difficulty-label">Dificultad:</span>
+                            <div class="difficulty-bar" style="width: 40%;" aria-label="Dificultad baja-media"></div>
+                        </div>
+                        <p><a href="https://tryhackme.com/room/ice" target="_blank" rel="noopener noreferrer">Enlace a la máquina en THM</a></p>
+                    </article>
+                </div>
+            </section>
+        </section>
+
+        <nav class="main-nav">
+            <h2>Categorías</h2>
+            <ul>
+                <li><a href="/ANÁLISIS%20FORENSE/ANALISIS.html">Análisis forense</a></li>
+                <li><a href="/BASTIONADO/BASTIONADO.html">Bastionado</a></li>
+                <li><a href="#">Hacking ético</a></li>
+                <li><a href="#">Incidentes de ciberseguridad</a></li>
+                <li><a href="#">Normativas de ciberseguridad</a></li>
+                <li><a href="#">Puesta en producción segura</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> Rafa Tocino - Todos los derechos reservados</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="hacking.js"></script>
+</body>
+</html>
