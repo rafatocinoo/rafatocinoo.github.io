@@ -10,7 +10,7 @@
 ## **Herramientas**
 
 * Herramientas de Kali Linux (2016.2):  
-  * Zap proxy  
+  * Burp Suit
   * dirb  
   * sqlmap  
 * Cuenta de Google para los desafíos 28 y 34 (OAuth2.0)  
