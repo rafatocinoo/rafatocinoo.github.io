@@ -1,0 +1,149 @@
+/* Hacking Ético - Estilos específicos */
+
+/* Estilos de la página */
+.page-title {
+  color: var(--accent-color-light);
+  margin-top: 0;
+  font-size: 2.2rem;
+  border-bottom: 2px solid var(--accent-color-light);
+  padding-bottom: 10px;
+  transition: color var(--transition-speed), border-color var(--transition-speed);
+}
+
+body.dark-mode .page-title {
+  color: var(--accent-color-dark);
+  border-color: var(--accent-color-dark);
+}
+
+.page-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* Estilos de las máquinas */
+.machine {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.machine-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.detail-label {
+  font-weight: 500;
+}
+
+.time-value {
+  font-size: 0.9rem;
+  color: var(--accent-color-light);
+  transition: color var(--transition-speed);
+}
+
+body.dark-mode .time-value {
+  color: var(--accent-color-dark);
+}
+
+/* Enlaces de máquinas */
+.machine-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.thm-link, .writeup-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.thm-link:hover, .writeup-link:hover {
+  background-color: var(--hover-light);
+  transform: translateX(5px);
+  text-decoration: none;
+}
+
+body.dark-mode .thm-link:hover, 
+body.dark-mode .writeup-link:hover {
+  background-color: var(--hover-dark);
+}
+
+.link-icon {
+  font-size: 1.2rem;
+}
+
+/* Etiquetas */
+.machine-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.tag {
+  background-color: var(--accent-color-light);
+  color: white;
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 15px;
+  transition: background-color var(--transition-speed);
+}
+
+body.dark-mode .tag {
+  background-color: var(--accent-color-dark);
+}
+
+/* Menú activo */
+.main-nav ul li a.active {
+  background-color: var(--accent-color-light);
+  color: white;
+  font-weight: 500;
+}
+
+body.dark-mode .main-nav ul li a.active {
+  background-color: var(--accent-color-dark);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .machine-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .thm-link, .writeup-link {
+    flex: 1;
+    min-width: 150px;
+  }
+  
+  .thm-link:hover, .writeup-link:hover {
+    transform: translateY(-3px);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .machine-links {
+    flex-direction: column;
+  }
+  
+  .page-title {
+    font-size: 1.8rem;
+  }
+  
+  .page-description {
+    font-size: 1rem;
+  }
+}
