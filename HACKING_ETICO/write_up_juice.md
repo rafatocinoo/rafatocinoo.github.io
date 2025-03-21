@@ -23,11 +23,11 @@
 
 ## **Desafíos**
 
-* [Desafíos de 1 estrella](https://github.com/apox64/OWASP-Juice-Shop-Write-Up/blob/master/juice-shop-writeup.md#1-star-challenges)  
-* [Desafíos de 2 estrellas](https://github.com/apox64/OWASP-Juice-Shop-Write-Up/blob/master/juice-shop-writeup.md#2-star-challenges)  
-* [Desafíos de 3 estrellas](https://github.com/apox64/OWASP-Juice-Shop-Write-Up/blob/master/juice-shop-writeup.md#3-star-challenges)  
-* [Desafíos de 4 estrellas](https://github.com/apox64/OWASP-Juice-Shop-Write-Up/blob/master/juice-shop-writeup.md#4-star-challenges)  
-* [Desafíos de 5 estrellas](https://github.com/apox64/OWASP-Juice-Shop-Write-Up/blob/master/juice-shop-writeup.md#5-star-challenges)  
+* [Desafíos de 1 estrella](https://github.com/rafatocinoo/rafatocinoo.github.io/blob/main/HACKING_ETICO/write_up_juice.md#desaf%C3%ADos-de-1-estrella)  
+* [Desafíos de 2 estrellas](https://github.com/rafatocinoo/rafatocinoo.github.io/blob/main/HACKING_ETICO/write_up_juice.md#desaf%C3%ADos-de-2-estrellas)  
+* [Desafíos de 3 estrellas](https://github.com/rafatocinoo/rafatocinoo.github.io/blob/main/HACKING_ETICO/write_up_juice.md#desaf%C3%ADos-de-3-estrellas)  
+* [Desafíos de 4 estrellas](https://github.com/rafatocinoo/rafatocinoo.github.io/blob/main/HACKING_ETICO/write_up_juice.md#desaf%C3%ADos-de-4-estrellas)  
+* [Desafíos de 5 estrellas](https://github.com/rafatocinoo/rafatocinoo.github.io/blob/main/HACKING_ETICO/write_up_juice.md#desaf%C3%ADos-de-5-estrellas)  
 
 ## **Desafíos de 1 estrella**
 
