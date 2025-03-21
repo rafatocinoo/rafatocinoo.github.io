@@ -52,27 +52,53 @@
         <p>&copy; <span id="current-year"></span> Rafa Tocino - Todos los derechos reservados</p>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const themeSwitch = document.querySelector(".theme-switch");
-            const body = document.body;
-            const switchHandle = document.querySelector(".switch-handle");
-            
-            // Verificar el modo guardado en localStorage
-            if (localStorage.getItem("theme") === "dark") {
-                body.classList.add("dark-mode");
-                switchHandle.textContent = "☀️";
+        class ThemeManager {
+            constructor() {
+                this.themeSwitch = document.querySelector(".theme-switch");
+                this.switchHandle = document.querySelector(".switch-handle");
+                this.body = document.body;
+                this.isDark = localStorage.getItem("darkMode") === "true";
+                this.init();
             }
-            
-            themeSwitch.addEventListener("click", function () {
-                body.classList.toggle("dark-mode");
-                if (body.classList.contains("dark-mode")) {
-                    localStorage.setItem("theme", "dark");
-                    switchHandle.textContent = "☀️";
+
+            init() {
+                this.setTheme(this.isDark);
+                this.themeSwitch.addEventListener("click", () => this.toggleTheme());
+                this.themeSwitch.addEventListener("keydown", (e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        this.toggleTheme();
+                    }
+                });
+            }
+
+            setTheme(isDark) {
+                this.isDark = isDark;
+                if (isDark) {
+                    this.body.classList.add("dark-mode");
+                    this.switchHandle.textContent = "☀️";
                 } else {
-                    localStorage.setItem("theme", "light");
-                    switchHandle.textContent = "🌙";
+                    this.body.classList.remove("dark-mode");
+                    this.switchHandle.textContent = "🌙";
                 }
-            });
+                localStorage.setItem("darkMode", isDark);
+            }
+
+            toggleTheme() {
+                this.setTheme(!this.isDark);
+            }
+        }
+
+        function setCurrentYear() {
+            const currentYearElement = document.getElementById("current-year");
+            if (currentYearElement) {
+                currentYearElement.textContent = new Date().getFullYear();
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            new ThemeManager();
+            setCurrentYear();
         });
     </script>
 </body>
