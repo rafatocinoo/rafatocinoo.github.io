@@ -1,149 +1,119 @@
-/* Hacking Ético - Estilos específicos */
+:root {
+  --bg-color-light: #f5f5f5;
+  --text-color-light: #333333;
+  --accent-color-light: #6200ea;
+  --card-bg-light: #ffffff;
+  --hover-light: #f0f0f0;
 
-/* Estilos de la página */
-.page-title {
-  color: var(--accent-color-light);
-  margin-top: 0;
-  font-size: 2.2rem;
-  border-bottom: 2px solid var(--accent-color-light);
-  padding-bottom: 10px;
-  transition: color var(--transition-speed), border-color var(--transition-speed);
+  --bg-color-dark: #121212;
+  --text-color-dark: #ffffff;
+  --accent-color-dark: #bb86fc;
+  --card-bg-dark: #1e1e1e;
+  --hover-dark: #2c2c2c;
+
+  --stripe-height: 60px;
+  --transition-speed: 0.3s;
+  --border-radius: 10px;
 }
 
-body.dark-mode .page-title {
-  color: var(--accent-color-dark);
-  border-color: var(--accent-color-dark);
-}
-
-.page-description {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 25px;
-}
-
-/* Estilos de las máquinas */
-.machine {
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
-.machine-details {
+body.dark-mode {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+}
+
+.top-stripe {
+  height: var(--stripe-height);
+  background-color: var(--accent-color-light);
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.detail-item {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+body.dark-mode .top-stripe {
+  background-color: var(--accent-color-dark);
 }
 
-.detail-label {
-  font-weight: 500;
-}
-
-.time-value {
-  font-size: 0.9rem;
-  color: var(--accent-color-light);
+.back-link {
+  color: var(--card-bg-light);
+  font-size: 24px;
+  text-decoration: none;
   transition: color var(--transition-speed);
 }
 
-body.dark-mode .time-value {
-  color: var(--accent-color-dark);
+body.dark-mode .back-link {
+  color: var(--card-bg-dark);
 }
 
-/* Enlaces de máquinas */
-.machine-links {
+.search-container {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  justify-content: center;
+  margin: 20px;
 }
 
-.thm-link, .writeup-link {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
+#search-input {
+  padding: 10px;
   border-radius: var(--border-radius);
-  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  border: 1px solid var(--text-color-light);
 }
 
-.thm-link:hover, .writeup-link:hover {
-  background-color: var(--hover-light);
-  transform: translateX(5px);
-  text-decoration: none;
+#search-button {
+  background-color: var(--accent-color-light);
+  border: none;
+  padding: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: var(--border-radius);
 }
 
-body.dark-mode .thm-link:hover, 
-body.dark-mode .writeup-link:hover {
-  background-color: var(--hover-dark);
+body.dark-mode #search-button {
+  background-color: var(--accent-color-dark);
 }
 
-.link-icon {
-  font-size: 1.2rem;
-}
-
-/* Etiquetas */
-.machine-tags {
+.machines-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 5px;
+  gap: 20px;
+  justify-content: center;
 }
 
-.tag {
+.machine {
+  background-color: var(--card-bg-light);
+  padding: 15px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-speed);
+}
+
+body.dark-mode .machine {
+  background-color: var(--card-bg-dark);
+}
+
+.machine:hover {
+  transform: translateY(-5px);
+}
+
+footer {
   background-color: var(--accent-color-light);
   color: white;
-  font-size: 0.8rem;
-  padding: 4px 8px;
-  border-radius: 15px;
+  text-align: center;
+  padding: 15px 0;
   transition: background-color var(--transition-speed);
 }
 
-body.dark-mode .tag {
+body.dark-mode footer {
   background-color: var(--accent-color-dark);
-}
-
-/* Menú activo */
-.main-nav ul li a.active {
-  background-color: var(--accent-color-light);
-  color: white;
-  font-weight: 500;
-}
-
-body.dark-mode .main-nav ul li a.active {
-  background-color: var(--accent-color-dark);
-}
-
-/* Responsive */
-@media screen and (max-width: 768px) {
-  .machine-links {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  
-  .thm-link, .writeup-link {
-    flex: 1;
-    min-width: 150px;
-  }
-  
-  .thm-link:hover, .writeup-link:hover {
-    transform: translateY(-3px);
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .machine-links {
-    flex-direction: column;
-  }
-  
-  .page-title {
-    font-size: 1.8rem;
-  }
-  
-  .page-description {
-    font-size: 1rem;
-  }
 }
