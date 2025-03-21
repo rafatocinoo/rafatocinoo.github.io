@@ -19,41 +19,61 @@
             <div class="switch-handle">🌙</div>
         </div>
     </header>
-        <section class="content">
-            <div class="search-container">
-                <input type="text" id="search-input" placeholder="Buscar máquinas..." aria-label="Buscar máquinas">
-                <button id="search-button" aria-label="Buscar">🔍</button>
+    <section class="content">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Buscar máquinas..." aria-label="Buscar máquinas">
+            <button id="search-button" aria-label="Buscar">🔍</button>
+        </div>
+        <section class="articles">
+            <h2>Máquinas Recientes</h2>
+            <div class="machines-container">
+                <article class="machine">
+                    <h3>Blue</h3>
+                    <div class="difficulty">
+                        <span class="difficulty-label">Dificultad:</span>
+                        <div class="difficulty-bar" style="width: 60%;" aria-label="Dificultad media"></div>
+                    </div>
+                    <p><a href="https://tryhackme.com/room/blue" target="_blank" rel="noopener noreferrer">Enlace a la máquina en THM</a></p>
+                    <p><a href="write_up_blue.md" target="_blank" rel="noopener noreferrer">Enlace al Write-Up</a></p>
+                </article>
+                <article class="machine">
+                    <h3>Ice</h3>
+                    <div class="difficulty">
+                        <span class="difficulty-label">Dificultad:</span>
+                        <div class="difficulty-bar" style="width: 40%;" aria-label="Dificultad baja-media"></div>
+                    </div>
+                    <p><a href="https://tryhackme.com/room/ice" target="_blank" rel="noopener noreferrer">Enlace a la máquina en THM</a></p>
+                    <p><a href="write_up_ice.md" target="_blank" rel="noopener noreferrer">Enlace al Write-Up</a></p>
+                </article>
             </div>
-
-            <section class="articles">
-                <h2>Máquinas Recientes</h2>
-                <div class="machines-container">
-                    <article class="machine">
-                        <h3>Blue</h3>
-                        <div class="difficulty">
-                            <span class="difficulty-label">Dificultad:</span>
-                            <div class="difficulty-bar" style="width: 60%;" aria-label="Dificultad media"></div>
-                        </div>
-                        <p><a href="https://tryhackme.com/room/blue" target="_blank" rel="noopener noreferrer">Enlace a la máquina en THM</a></p>
-                        <p><a href="write_up_blue.md" target="_blank" rel="noopener noreferrer">Enlace al Write-Up</a></p>
-                    </article>
-                    <article class="machine">
-                        <h3>Ice</h3>
-                        <div class="difficulty">
-                            <span class="difficulty-label">Dificultad:</span>
-                            <div class="difficulty-bar" style="width: 40%;" aria-label="Dificultad baja-media"></div>
-                        </div>
-                        <p><a href="https://tryhackme.com/room/ice" target="_blank" rel="noopener noreferrer">Enlace a la máquina en THM</a></p>
-                        <p><a href="write_up_ice.md" target="_blank" rel="noopener noreferrer">Enlace al Write-Up</a></p>
-                    </article>
-                </div>
-            </section>
         </section>
-    </main>
-
+    </section>
     <footer>
         <p>&copy; <span id="current-year"></span> Rafa Tocino - Todos los derechos reservados</p>
     </footer>
-    <script src="hacking.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const themeSwitch = document.querySelector(".theme-switch");
+            const body = document.body;
+            const switchHandle = document.querySelector(".switch-handle");
+            
+            // Verificar el modo guardado en localStorage
+            if (localStorage.getItem("theme") === "dark") {
+                body.classList.add("dark-mode");
+                switchHandle.textContent = "☀️";
+            }
+            
+            themeSwitch.addEventListener("click", function () {
+                body.classList.toggle("dark-mode");
+                if (body.classList.contains("dark-mode")) {
+                    localStorage.setItem("theme", "dark");
+                    switchHandle.textContent = "☀️";
+                } else {
+                    localStorage.setItem("theme", "light");
+                    switchHandle.textContent = "🌙";
+                }
+            });
+        });
+    </script>
 </body>
 </html>
