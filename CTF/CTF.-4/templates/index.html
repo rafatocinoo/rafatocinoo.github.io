@@ -11,6 +11,11 @@
     <button onclick="consultar()">Consultar</button>
     <p id="resultado"></p>
 
+    <h2>Descubrir la Flag</h2>
+    <input type="text" id="clave" placeholder="Introduce la clave">
+    <button onclick="obtenerParte()">Obtener Parte</button>
+    <p id="parte"></p>
+
     <script>
         function consultar() {
             let usuario = document.getElementById("user").value;
@@ -18,6 +23,15 @@
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById("resultado").innerText = data.mensaje || data.error;
+                });
+        }
+
+        function obtenerParte() {
+            let clave = document.getElementById("clave").value;
+            fetch(`/hidden?key=${clave}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("parte").innerText = data.parte || data.error;
                 });
         }
     </script>
