@@ -46,12 +46,24 @@ class ProjectManager {
   init() {
     this.projects.forEach((project) => {
       project.addEventListener("click", () => this.navigateToProject(project))
+      project.addEventListener("mouseenter", () => this.showDescription(project))
+      project.addEventListener("mouseleave", () => this.hideDescription(project))
     })
   }
 
   navigateToProject(project) {
     const url = project.getAttribute("data-url")
     window.location.href = url
+  }
+
+  showDescription(project) {
+    const description = project.querySelector(".description")
+    description.style.display = "block"
+  }
+
+  hideDescription(project) {
+    const description = project.querySelector(".description")
+    description.style.display = "none"
   }
 }
 
