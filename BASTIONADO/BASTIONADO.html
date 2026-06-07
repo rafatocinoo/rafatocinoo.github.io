@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bastionado - Proyectos</title>
+    <meta name="description" content="Proyectos de bastionado y hardening: BIOS/UEFI, Debian y Access Points por Rafa Tocino">
+    <meta name="keywords" content="bastionado, hardening, BIOS, UEFI, Debian, seguridad, ciberseguridad">
+    <meta name="author" content="Rafa Tocino">
+    <meta name="theme-color" content="#6200ea">
+    <title>Bastionado | Rafa Tocino</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
     <link rel="stylesheet" href="BASTIONADO.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="top-stripe">
-        <a href="/rafatocinoo.github.io/index.html" class="back-link" aria-label="Volver al inicio">←</a>
+        <a href="/" class="back-link" aria-label="Volver al inicio">←</a>
         <h1>Bastionado</h1>
         <div class="theme-switch" role="button" tabindex="0" aria-label="Cambiar tema">
             <div class="switch-handle">🌙</div>
@@ -18,22 +25,25 @@
 
     <main class="container">
         <section class="projects">
-            <div class="project" data-url="https://github.com/rafatocinoo/Proyecto1.1">
+            <div class="project" data-url="https://rafatocinoo.github.io/BASTIONADO/Proyecto1.1">
                 <h2>Proyecto 1.1</h2>
-                <div class="description">Bastionado de BIOS/UEFI.</div>
+                <div class="description">Bastionado de BIOS/UEFI — configuración de arranque seguro, contraseñas de administrador y orden de boot.</div>
             </div>
-            <div class="project" data-url="https://github.com/rafatocinoo/Proyecto1.2">
+            <div class="project" data-url="https://rafatocinoo.github.io/BASTIONADO/Proyecto1.2">
                 <h2>Proyecto 1.2</h2>
-                <div class="description">Bastionado de Debian.</div>
+                <div class="description">Bastionado de Debian — hardening de GRUB, cifrado de disco, configuración de SSH y políticas de seguridad.</div>
             </div>
             <div class="project" data-url="https://rafatocinoo.github.io/BASTIONADO/Bastionado-AP">
                 <h2>Proyecto 8</h2>
-                <div class="description">Hardening a un AP</div>
+                <div class="description">Hardening de un Access Point — segmentación de red, cifrado WPA3 y políticas de acceso inalámbrico.</div>
             </div>
         </section>
     </main>
 
+    <footer>
+        <p>&copy; <span id="current-year"></span> Rafa Tocino — Todos los derechos reservados</p>
+    </footer>
+
     <script src="BASTIONADO.js"></script>
 </body>
 </html>
-

@@ -1,38 +1,20 @@
 /**
- * Cybersecurity Blog - Main JavaScript
+ * Cybersecurity Portfolio - Main JavaScript
  * Author: Rafa Tocino
- * Description: Handles theme switching, search functionality, and animations
  */
 
-// DOM Elements
-const themeSwitch = document.querySelector(".theme-switch")
-const switchHandle = document.querySelector(".switch-handle")
-const body = document.body
-const searchInput = document.getElementById("search-input")
-const searchButton = document.getElementById("search-button")
-const machines = document.querySelectorAll(".machine")
-const currentYearElement = document.getElementById("current-year")
-
-/**
- * Theme Management
- */
 class ThemeManager {
   constructor() {
+    this.themeSwitch = document.querySelector(".theme-switch")
+    this.switchHandle = document.querySelector(".switch-handle")
     this.isDark = localStorage.getItem("darkMode") === "true"
     this.init()
   }
 
   init() {
-    // Set initial theme
     this.setTheme(this.isDark)
-
-    // Add event listener for theme switch
-    themeSwitch.addEventListener("click", () => {
-      this.toggleTheme()
-    })
-
-    // Add keyboard accessibility
-    themeSwitch.addEventListener("keydown", (e) => {
+    this.themeSwitch.addEventListener("click", () => this.toggleTheme())
+    this.themeSwitch.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault()
         this.toggleTheme()
@@ -42,15 +24,13 @@ class ThemeManager {
 
   setTheme(isDark) {
     this.isDark = isDark
-
     if (isDark) {
-      body.classList.add("dark-mode")
-      switchHandle.textContent = "☀️"
+      document.body.classList.add("dark-mode")
+      this.switchHandle.textContent = "☀️"
     } else {
-      body.classList.remove("dark-mode")
-      switchHandle.textContent = "🌙"
+      document.body.classList.remove("dark-mode")
+      this.switchHandle.textContent = "🌙"
     }
-
     localStorage.setItem("darkMode", isDark)
   }
 
@@ -59,78 +39,96 @@ class ThemeManager {
   }
 }
 
-/**
- * Search Functionality
- */
 class SearchManager {
   constructor() {
+    this.searchInput = document.getElementById("search-input")
+    this.searchButton = document.getElementById("search-button")
+    this.machines = document.querySelectorAll(".machine")
+    if (!this.searchInput) return
     this.init()
   }
 
   init() {
-    searchInput.addEventListener("input", () => {
-      this.performSearch()
-    })
-
-    searchButton.addEventListener("click", () => {
-      this.performSearch()
-    })
+    this.searchInput.addEventListener("input", () => this.performSearch())
+    this.searchButton.addEventListener("click", () => this.performSearch())
   }
 
   performSearch() {
-    const searchTerm = searchInput.value.toLowerCase().trim()
-
-    machines.forEach((machine) => {
-      const title = machine.querySelector("h3").textContent.toLowerCase()
-
-      if (searchTerm === "" || title.includes(searchTerm)) {
-        machine.style.display = "block"
-      } else {
-        machine.style.display = "none"
-      }
+    const term = this.searchInput.value.toLowerCase().trim()
+    this.machines.forEach((machine) => {
+      const title = machine.querySelector("h3")?.textContent.toLowerCase() ?? ""
+      const tags = Array.from(machine.querySelectorAll(".tag"))
+        .map((t) => t.textContent.toLowerCase())
+      const matches = term === "" || title.includes(term) || tags.some((t) => t.includes(term))
+      machine.style.display = matches ? "" : "none"
     })
   }
 }
 
-/**
- * Animation Manager
- */
+class TypingManager {
+  constructor(elementId, texts, speed = 75) {
+    this.el = document.getElementById(elementId)
+    this.texts = texts
+    this.speed = speed
+    this.textIndex = 0
+    this.charIndex = 0
+    this.isDeleting = false
+    if (this.el) this._tick()
+  }
+
+  _tick() {
+    const current = this.texts[this.textIndex]
+    this.charIndex = this.isDeleting ? this.charIndex - 1 : this.charIndex + 1
+    this.el.textContent = current.slice(0, this.charIndex)
+
+    const atEnd = this.charIndex === current.length
+    const atStart = this.charIndex === 0
+
+    if (atEnd && !this.isDeleting) {
+      if (this.texts.length === 1) return
+      setTimeout(() => { this.isDeleting = true; this._tick() }, 2400)
+      return
+    }
+    if (atStart && this.isDeleting) {
+      this.isDeleting = false
+      this.textIndex = (this.textIndex + 1) % this.texts.length
+    }
+
+    setTimeout(() => this._tick(), this.isDeleting ? 38 : this.speed)
+  }
+}
+
 class AnimationManager {
   constructor() {
+    this.machines = document.querySelectorAll(".machine")
     this.init()
   }
 
   init() {
-    // Staggered animation for machines
-    machines.forEach((machine, index) => {
+    this.machines.forEach((machine, i) => {
+      machine.style.animationDelay = `${i * 120}ms`
+      setTimeout(() => machine.classList.add("visible"), i * 120)
+    })
+
+    document.querySelectorAll(".difficulty-bar").forEach((bar) => {
+      const targetWidth = bar.getAttribute("data-width")
+      if (!targetWidth) return
       setTimeout(() => {
-        machine.style.opacity = "1"
-      }, 100 * index)
+        bar.style.width = targetWidth + "%"
+      }, 400)
     })
   }
 }
 
-/**
- * Utility Functions
- */
 function setCurrentYear() {
-  if (currentYearElement) {
-    currentYearElement.textContent = new Date().getFullYear()
-  }
+  const el = document.getElementById("current-year")
+  if (el) el.textContent = new Date().getFullYear()
 }
 
-/**
- * Initialize everything when DOM is loaded
- */
 document.addEventListener("DOMContentLoaded", () => {
-  // Initialize managers
-  const themeManager = new ThemeManager()
-  const searchManager = new SearchManager()
-  const animationManager = new AnimationManager()
-
-  // Set current year in footer
+  new ThemeManager()
+  new SearchManager()
+  new AnimationManager()
+  new TypingManager("typing-text", ["Especialista en Ciberseguridad", "Red Team | Blue Team", "CTF Player | Pentester"])
   setCurrentYear()
 })
-
-
-

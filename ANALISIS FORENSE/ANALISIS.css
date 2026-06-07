@@ -3,17 +3,21 @@
   --text-color-light: #333333;
   --accent-color-light: #6200ea;
   --card-bg-light: #ffffff;
-  --hover-light: #f0f0f0;
+  --hover-light: #eeeeee;
 
-  --bg-color-dark: #121212;
-  --text-color-dark: #ffffff;
+  --bg-color-dark: #0d0d0d;
+  --text-color-dark: #e0e0e0;
   --accent-color-dark: #bb86fc;
-  --card-bg-dark: #1e1e1e;
-  --hover-dark: #2c2c2c;
+  --card-bg-dark: #1a1a2e;
+  --hover-dark: #252540;
+
+  --cyber-green: #00e5a0;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
 
   --stripe-height: 60px;
   --transition-speed: 0.3s;
   --border-radius: 10px;
+  --glow-purple: 0 0 12px rgba(187, 134, 252, 0.3);
 }
 
 body {
@@ -33,6 +37,7 @@ body.dark-mode {
   color: var(--text-color-dark);
 }
 
+/* ── Header ── */
 .top-stripe {
   height: var(--stripe-height);
   background-color: var(--accent-color-light);
@@ -40,22 +45,34 @@ body.dark-mode {
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 body.dark-mode .top-stripe {
-  background-color: var(--accent-color-dark);
+  background-color: #1a0040;
+  border-bottom: 1px solid rgba(187, 134, 252, 0.3);
+}
+
+.top-stripe h1 {
+  color: white;
+  font-size: 1.1rem;
+  margin: 0;
+  letter-spacing: 0.04em;
+  font-weight: 500;
 }
 
 .back-link {
   background-color: transparent;
-  border: 2px solid var(--bg-color-light);
-  color: var(--bg-color-light);
-  font-size: 24px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  color: white;
+  font-size: 20px;
   cursor: pointer;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,26 +81,27 @@ body.dark-mode .top-stripe {
 }
 
 .back-link:hover {
-  background-color: var(--bg-color-light);
+  background-color: white;
   color: var(--accent-color-light);
+  transform: scale(1.1);
 }
 
 body.dark-mode .back-link {
-  border-color: var(--bg-color-dark);
-  color: var(--bg-color-dark);
-}
-
-body.dark-mode .back-link:hover {
-  background-color: var(--bg-color-dark);
+  border-color: rgba(187, 134, 252, 0.5);
   color: var(--accent-color-dark);
 }
 
+body.dark-mode .back-link:hover {
+  background-color: rgba(187, 134, 252, 0.15);
+}
+
+/* ── Theme Switch ── */
 .theme-switch {
   position: relative;
   width: 50px;
   height: 25px;
   border-radius: 15px;
-  background-color: var(--bg-color-light);
+  background-color: rgba(255, 255, 255, 0.3);
   cursor: pointer;
   transition: background-color var(--transition-speed);
 }
@@ -94,13 +112,18 @@ body.dark-mode .back-link:hover {
   left: 2px;
   width: 21px;
   height: 21px;
-  background-color: var(--accent-color-light);
+  background-color: white;
   border-radius: 50%;
   transition: transform var(--transition-speed);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 13px;
+}
+
+body.dark-mode .theme-switch {
+  background-color: rgba(187, 134, 252, 0.2);
+  border: 1px solid rgba(187, 134, 252, 0.4);
 }
 
 body.dark-mode .switch-handle {
@@ -108,11 +131,14 @@ body.dark-mode .switch-handle {
   background-color: var(--accent-color-dark);
 }
 
+/* ── Layout ── */
 .container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
+  max-width: 820px;
+  margin: 32px auto;
+  padding: 0 20px;
   flex: 1;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .projects {
@@ -120,27 +146,38 @@ body.dark-mode .switch-handle {
   gap: 20px;
 }
 
+/* ── Project cards ── */
 .project {
   background-color: var(--card-bg-light);
-  padding: 20px;
+  padding: 22px;
   border-radius: var(--border-radius);
   cursor: pointer;
-  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed), border-color var(--transition-speed);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid transparent;
 }
 
 body.dark-mode .project {
   background-color: var(--card-bg-dark);
+  border-color: rgba(187, 134, 252, 0.1);
 }
 
 .project:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border-color: rgba(98, 0, 234, 0.2);
+}
+
+body.dark-mode .project:hover {
+  box-shadow: var(--glow-purple), 0 8px 20px rgba(0, 0, 0, 0.4);
+  border-color: rgba(187, 134, 252, 0.35);
 }
 
 .project h2 {
   margin-top: 0;
+  margin-bottom: 8px;
   color: var(--accent-color-light);
+  font-size: 1.05rem;
 }
 
 body.dark-mode .project h2 {
@@ -148,29 +185,35 @@ body.dark-mode .project h2 {
 }
 
 .description {
-  margin-top: 10px;
-  font-size: 0.9rem;
-  opacity: 0.8;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  opacity: 0.75;
 }
 
+/* ── Footer ── */
 footer {
   background-color: var(--accent-color-light);
   color: white;
   text-align: center;
   padding: 15px 0;
+  margin-top: auto;
+  font-size: 0.85rem;
   transition: background-color var(--transition-speed);
 }
 
 body.dark-mode footer {
-  background-color: var(--accent-color-dark);
+  background-color: #1a0040;
+  color: rgba(255, 255, 255, 0.7);
+  border-top: 1px solid rgba(187, 134, 252, 0.2);
 }
 
+/* ── Responsive ── */
 @media screen and (max-width: 600px) {
   .container {
-    padding: 10px;
+    padding: 0 12px;
   }
 
   .project {
-    padding: 15px;
+    padding: 16px;
   }
 }
