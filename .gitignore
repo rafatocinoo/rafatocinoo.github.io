@@ -1,0 +1,8 @@
+# Repos de proyecto clonados dentro del web por accidente.
+# Viven en sus propios repos de GitHub (enlazados desde /bastionado/);
+# se ignoran aquí para no romper el build de GitHub Pages (submódulos sin URL).
+/bastionado/Proyecto1.1/
+/bastionado/Proyecto1.2/
+
+# Temporales de auditoría
+.lhtmp/
