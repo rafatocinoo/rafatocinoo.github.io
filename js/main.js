@@ -1,136 +1,45 @@
 /**
- * Cybersecurity Blog - Main JavaScript
- * Author: Rafa Tocino
- * Description: Handles theme switching, search functionality, and animations
+ * main.js — Funcionalidad de la portada: buscador de máquinas en cliente.
+ * El tema y la cabecera/pie los gestiona layout.js.
  */
+(function () {
+  "use strict";
 
-// DOM Elements
-const themeSwitch = document.querySelector(".theme-switch")
-const switchHandle = document.querySelector(".switch-handle")
-const body = document.body
-const searchInput = document.getElementById("search-input")
-const searchButton = document.getElementById("search-button")
-const machines = document.querySelectorAll(".machine")
-const currentYearElement = document.getElementById("current-year")
+  document.addEventListener("DOMContentLoaded", function () {
+    var input = document.getElementById("search-input");
+    var machines = Array.prototype.slice.call(document.querySelectorAll(".machine"));
+    var noResults = document.getElementById("no-results");
 
-/**
- * Theme Management
- */
-class ThemeManager {
-  constructor() {
-    this.isDark = localStorage.getItem("darkMode") === "true"
-    this.init()
-  }
-
-  init() {
-    // Set initial theme
-    this.setTheme(this.isDark)
-
-    // Add event listener for theme switch
-    themeSwitch.addEventListener("click", () => {
-      this.toggleTheme()
-    })
-
-    // Add keyboard accessibility
-    themeSwitch.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault()
-        this.toggleTheme()
-      }
-    })
-  }
-
-  setTheme(isDark) {
-    this.isDark = isDark
-
-    if (isDark) {
-      body.classList.add("dark-mode")
-      switchHandle.textContent = "☀️"
-    } else {
-      body.classList.remove("dark-mode")
-      switchHandle.textContent = "🌙"
+    if (!input || machines.length === 0) {
+      return;
     }
 
-    localStorage.setItem("darkMode", isDark)
-  }
+    function filter() {
+      var term = input.value.toLowerCase().trim();
+      var visibles = 0;
 
-  toggleTheme() {
-    this.setTheme(!this.isDark)
-  }
-}
+      machines.forEach(function (machine) {
+        var name = machine.getAttribute("data-name") || "";
+        var match = term === "" || name.toLowerCase().indexOf(term) !== -1;
+        machine.hidden = !match;
+        if (match) {
+          visibles++;
+        }
+      });
 
-/**
- * Search Functionality
- */
-class SearchManager {
-  constructor() {
-    this.init()
-  }
-
-  init() {
-    searchInput.addEventListener("input", () => {
-      this.performSearch()
-    })
-
-    searchButton.addEventListener("click", () => {
-      this.performSearch()
-    })
-  }
-
-  performSearch() {
-    const searchTerm = searchInput.value.toLowerCase().trim()
-
-    machines.forEach((machine) => {
-      const title = machine.querySelector("h3").textContent.toLowerCase()
-
-      if (searchTerm === "" || title.includes(searchTerm)) {
-        machine.style.display = "block"
-      } else {
-        machine.style.display = "none"
+      if (noResults) {
+        noResults.hidden = visibles !== 0;
       }
-    })
-  }
-}
+    }
 
-/**
- * Animation Manager
- */
-class AnimationManager {
-  constructor() {
-    this.init()
-  }
+    input.addEventListener("input", filter);
 
-  init() {
-    // Staggered animation for machines
-    machines.forEach((machine, index) => {
-      setTimeout(() => {
-        machine.style.opacity = "1"
-      }, 100 * index)
-    })
-  }
-}
-
-/**
- * Utility Functions
- */
-function setCurrentYear() {
-  if (currentYearElement) {
-    currentYearElement.textContent = new Date().getFullYear()
-  }
-}
-
-/**
- * Initialize everything when DOM is loaded
- */
-document.addEventListener("DOMContentLoaded", () => {
-  // Initialize managers
-  const themeManager = new ThemeManager()
-  const searchManager = new SearchManager()
-  const animationManager = new AnimationManager()
-
-  // Set current year in footer
-  setCurrentYear()
-})
-
-
-
+    var form = input.closest("form");
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        filter();
+      });
+    }
+  });
+})();

@@ -1,39 +1,55 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bastionado - Proyectos</title>
-    <link rel="stylesheet" href="BASTIONADO.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bastionado | Rafa Tocino</title>
+  <meta name="description" content="Proyectos de bastionado y hardening: BIOS/UEFI, Debian y puntos de acceso.">
+  <meta name="author" content="Rafa Tocino">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Bastionado | Rafa Tocino">
+  <meta property="og:description" content="Proyectos de bastionado y hardening: BIOS/UEFI, Debian y puntos de acceso.">
+  <meta property="og:image" content="/img/portada.png">
+  <meta property="og:url" content="https://rafatocinoo.github.io/bastionado/">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) { t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
 </head>
-<body>
-    <header class="top-stripe">
-        <a href="/rafatocinoo.github.io/index.html" class="back-link" aria-label="Volver al inicio">←</a>
-        <h1>Bastionado</h1>
-        <div class="theme-switch" role="button" tabindex="0" aria-label="Cambiar tema">
-            <div class="switch-handle">🌙</div>
-        </div>
-    </header>
+<body data-page-title="Bastionado">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-    <main class="container">
-        <section class="projects">
-            <div class="project" data-url="https://github.com/rafatocinoo/Proyecto1.1">
-                <h2>Proyecto 1.1</h2>
-                <div class="description">Bastionado de BIOS/UEFI.</div>
-            </div>
-            <div class="project" data-url="https://github.com/rafatocinoo/Proyecto1.2">
-                <h2>Proyecto 1.2</h2>
-                <div class="description">Bastionado de Debian.</div>
-            </div>
-            <div class="project" data-url="https://rafatocinoo.github.io/BASTIONADO/Bastionado-AP">
-                <h2>Proyecto 8</h2>
-                <div class="description">Hardening a un AP</div>
-            </div>
-        </section>
-    </main>
+  <main class="container" id="contenido">
+    <h2 class="section-title">Proyectos</h2>
+    <section class="projects">
+      <a class="project-card" href="https://github.com/rafatocinoo/Proyecto1.1" target="_blank" rel="noopener noreferrer">
+        <h3>Proyecto 1.1</h3>
+        <p class="description">Bastionado de BIOS/UEFI.</p>
+      </a>
+      <a class="project-card" href="https://github.com/rafatocinoo/Proyecto1.2" target="_blank" rel="noopener noreferrer">
+        <h3>Proyecto 1.2</h3>
+        <p class="description">Bastionado de Debian.</p>
+      </a>
+      <a class="project-card" href="https://rafatocinoo.github.io/BASTIONADO/Bastionado-AP" target="_blank" rel="noopener noreferrer">
+        <h3>Proyecto 8</h3>
+        <p class="description">Hardening de un punto de acceso (AP).</p>
+      </a>
+    </section>
+  </main>
 
-    <script src="BASTIONADO.js"></script>
+  <script src="/js/layout.js"></script>
 </body>
 </html>
-

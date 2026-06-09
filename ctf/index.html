@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CTF | Rafa Tocino</title>
+  <meta name="description" content="Retos CTF resueltos: pwn/buffer overflow, retos web y explotación de sistemas.">
+  <meta name="author" content="Rafa Tocino">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="CTF | Rafa Tocino">
+  <meta property="og:description" content="Retos CTF resueltos: pwn, web y explotación de sistemas.">
+  <meta property="og:image" content="/img/portada.png">
+  <meta property="og:url" content="https://rafatocinoo.github.io/ctf/">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) { t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body data-page-title="CTF">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <main class="container" id="contenido">
+    <h2 class="section-title">Retos resueltos</h2>
+    <section class="projects">
+      <a class="project-card" href="https://github.com/rafatocinoo/rafatocinoo.github.io/tree/main/ctf/ctf-02" target="_blank" rel="noopener noreferrer">
+        <h3>Reto Pwn — Buffer Overflow</h3>
+        <p class="description">Explotación de un binario en C vulnerable (<code>reto_pwn.c</code>) con su exploit en Python.</p>
+      </a>
+      <a class="project-card" href="https://github.com/rafatocinoo/rafatocinoo.github.io/tree/main/ctf/ctf-04" target="_blank" rel="noopener noreferrer">
+        <h3>Reto Web — HackathonCTF</h3>
+        <p class="description">Servidor de reto en Python (Flask) con su plantilla y flags ocultas.</p>
+      </a>
+      <a class="project-card" href="https://github.com/rafatocinoo/rafatocinoo.github.io/tree/main/ctf/ctf-05" target="_blank" rel="noopener noreferrer">
+        <h3>Reto de explotación de sistema</h3>
+        <p class="description">Servicio vulnerable en Python y su exploit asociado.</p>
+      </a>
+      <a class="project-card" href="https://github.com/rafatocinoo/rafatocinoo.github.io/tree/main/ctf/hackaton" target="_blank" rel="noopener noreferrer">
+        <h3>HackathonCTF 2025</h3>
+        <p class="description">Sitio del hackathon con flags escondidas para auditar.</p>
+      </a>
+    </section>
+  </main>
+
+  <script src="/js/layout.js"></script>
+</body>
+</html>
