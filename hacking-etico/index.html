@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hacking Ético | Rafa Tocino</title>
-  <meta name="description" content="Hacking ético: write-ups de máquinas de TryHackMe (Blue, Ice, Bolt, Ignite) y OWASP Juice Shop.">
+  <meta name="description" content="Write-ups y resolución de máquinas de TryHackMe (Blue, Ice, Bolt, Ignite) y OWASP Juice Shop.">
+  <meta name="keywords" content="hacking ético, TryHackMe, write-up, CTF, pentesting, EternalBlue, OWASP">
   <meta name="author" content="Rafa Tocino">
+  <meta name="theme-color" content="#6200ea">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Hacking Ético | Rafa Tocino">
@@ -17,8 +19,8 @@
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"></noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap"></noscript>
 
   <script>
     (function () {
@@ -34,52 +36,129 @@
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
   <main class="container" id="contenido">
+    <form class="search-container" role="search" aria-label="Buscar máquinas">
+      <input type="text" id="search-input" placeholder="Buscar por nombre, dificultad o etiqueta..." aria-label="Buscar máquinas" autocomplete="off">
+      <button type="submit" aria-label="Buscar">🔍</button>
+    </form>
+
     <section class="articles" aria-labelledby="titulo-maquinas">
       <h2 class="section-title" id="titulo-maquinas">Máquinas</h2>
       <div class="machines-container">
-        <article class="machine">
-          <h3>Blue</h3>
+        <article class="machine" data-name="Blue">
+          <div class="machine-header">
+            <h3>Blue</h3>
+            <span class="platform-badge">THM</span>
+          </div>
           <div class="difficulty difficulty--medium">
             <span class="difficulty__badge">Dificultad: Media</span>
             <div class="difficulty__bar" role="img" aria-label="Dificultad media">
               <div class="difficulty__fill"></div>
             </div>
           </div>
-          <p><a href="https://tryhackme.com/room/blue" target="_blank" rel="noopener noreferrer">Máquina en TryHackMe</a></p>
+          <div class="machine-tags">
+            <span class="tag">Windows</span>
+            <span class="tag">EternalBlue</span>
+            <span class="tag">Metasploit</span>
+            <span class="tag">MS17-010</span>
+          </div>
+          <div class="machine-links">
+            <a class="btn-link" href="https://tryhackme.com/room/blue" target="_blank" rel="noopener noreferrer">Ver en THM ↗</a>
+          </div>
         </article>
 
-        <article class="machine">
-          <h3>Ice</h3>
+        <article class="machine" data-name="Ice">
+          <div class="machine-header">
+            <h3>Ice</h3>
+            <span class="platform-badge">THM</span>
+          </div>
           <div class="difficulty difficulty--easy">
             <span class="difficulty__badge">Dificultad: Fácil</span>
             <div class="difficulty__bar" role="img" aria-label="Dificultad fácil">
               <div class="difficulty__fill"></div>
             </div>
           </div>
-          <p><a href="https://tryhackme.com/room/ice" target="_blank" rel="noopener noreferrer">Máquina en TryHackMe</a></p>
+          <div class="machine-tags">
+            <span class="tag">Windows</span>
+            <span class="tag">CVE-2004-1561</span>
+          </div>
+          <div class="machine-links">
+            <a class="btn-link" href="https://tryhackme.com/room/ice" target="_blank" rel="noopener noreferrer">Ver en THM ↗</a>
+          </div>
+        </article>
+
+        <article class="machine" data-name="Bolt">
+          <div class="machine-header">
+            <h3>Bolt</h3>
+            <span class="platform-badge">THM</span>
+          </div>
+          <div class="difficulty difficulty--easy">
+            <span class="difficulty__badge">Dificultad: Fácil</span>
+            <div class="difficulty__bar" role="img" aria-label="Dificultad fácil">
+              <div class="difficulty__fill"></div>
+            </div>
+          </div>
+          <div class="machine-tags">
+            <span class="tag">Linux</span>
+            <span class="tag">Web</span>
+            <span class="tag">Bolt CMS</span>
+            <span class="tag">RCE</span>
+          </div>
+          <div class="machine-links">
+            <a class="btn-link" href="write_up_bolt.md">Write-Up</a>
+            <a class="btn-link" href="https://tryhackme.com/room/bolt" target="_blank" rel="noopener noreferrer">Ver en THM ↗</a>
+          </div>
+        </article>
+
+        <article class="machine" data-name="Ignite">
+          <div class="machine-header">
+            <h3>Ignite</h3>
+            <span class="platform-badge">THM</span>
+          </div>
+          <div class="difficulty difficulty--easy">
+            <span class="difficulty__badge">Dificultad: Fácil</span>
+            <div class="difficulty__bar" role="img" aria-label="Dificultad fácil">
+              <div class="difficulty__fill"></div>
+            </div>
+          </div>
+          <div class="machine-tags">
+            <span class="tag">Linux</span>
+            <span class="tag">Web</span>
+            <span class="tag">Fuel CMS</span>
+          </div>
+          <div class="machine-links">
+            <a class="btn-link" href="write_up_ignite.md">Write-Up</a>
+            <a class="btn-link" href="https://tryhackme.com/room/ignite" target="_blank" rel="noopener noreferrer">Ver en THM ↗</a>
+          </div>
+        </article>
+
+        <article class="machine" data-name="Juice Shop">
+          <div class="machine-header">
+            <h3>Juice Shop</h3>
+            <span class="platform-badge">OWASP</span>
+          </div>
+          <div class="difficulty difficulty--hard">
+            <span class="difficulty__badge">Dificultad: Difícil</span>
+            <div class="difficulty__bar" role="img" aria-label="Dificultad difícil">
+              <div class="difficulty__fill"></div>
+            </div>
+          </div>
+          <div class="machine-tags">
+            <span class="tag">Web</span>
+            <span class="tag">OWASP Top 10</span>
+            <span class="tag">SQLi</span>
+            <span class="tag">XSS</span>
+          </div>
+          <div class="machine-links">
+            <a class="btn-link" href="write_up_juice.md">Write-Up</a>
+          </div>
         </article>
       </div>
-    </section>
 
-    <section class="articles" aria-labelledby="titulo-writeups">
-      <h2 class="section-title" id="titulo-writeups">Write-ups</h2>
-      <div class="projects">
-        <a class="project-card" href="write_up_bolt.md">
-          <h3>TryHackMe — Bolt</h3>
-          <p class="description">Guía de explotación: reconocimiento, acceso y escalada.</p>
-        </a>
-        <a class="project-card" href="write_up_ignite.md">
-          <h3>TryHackMe — Ignite</h3>
-          <p class="description">Guía de explotación de la máquina Ignite.</p>
-        </a>
-        <a class="project-card" href="write_up_juice.md">
-          <h3>OWASP Juice Shop</h3>
-          <p class="description">Write-up de desafíos de OWASP Juice Shop (v2.19.1).</p>
-        </a>
-      </div>
+      <p class="no-results" id="no-results" hidden>No se han encontrado máquinas con ese criterio.</p>
     </section>
   </main>
 
   <script src="/js/layout.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 </html>

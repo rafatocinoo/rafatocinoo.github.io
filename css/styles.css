@@ -21,6 +21,12 @@
   --diff-medium: #d98a00;
   --diff-hard: #d23c3c;
 
+  /* Acentos "terminal/cyber" (estética hacker) */
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+  --cyber-green: #00a37a;
+  --cyber-green-dim: rgba(0, 163, 122, 0.12);
+  --glow: none;
+
   /* Tipografía */
   --font-base: "Roboto", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
   --fs-300: 0.875rem;
@@ -67,6 +73,10 @@
 
   --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.5);
+
+  --cyber-green: #00e5a0;
+  --cyber-green-dim: rgba(0, 229, 160, 0.15);
+  --glow: 0 0 14px rgba(187, 134, 252, 0.35);
 }
 
 /* ---------- Base ---------- */
@@ -553,5 +563,168 @@ input:focus-visible,
   }
   .site-header__title {
     font-size: var(--fs-400);
+  }
+}
+
+/* =========================================================
+   Estética "terminal / cyber" (integrada de "My existence")
+   ========================================================= */
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Prompt de terminal en la cabecera */
+.terminal-prompt {
+  font-family: var(--font-mono);
+  font-size: var(--fs-300);
+  color: var(--color-on-primary);
+  letter-spacing: 0.04em;
+  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.term-cursor {
+  animation: blink 1s step-end infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .term-cursor, .typing-cursor { animation: none; }
+}
+
+/* Título con efecto "typing" */
+.job-title.typing {
+  font-family: var(--font-mono);
+  font-size: var(--fs-300);
+  min-height: 1.5em;
+  letter-spacing: 0.02em;
+}
+.typing-cursor {
+  animation: blink 0.8s step-end infinite;
+  color: var(--color-primary);
+}
+[data-theme="dark"] .job-title.typing,
+[data-theme="dark"] .typing-cursor {
+  color: var(--cyber-green);
+}
+
+/* Etiquetas de especialidad */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+  margin: var(--space-2) 0 var(--space-4);
+}
+.skill-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 9px;
+  border-radius: 20px;
+  background-color: var(--cyber-green-dim);
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+}
+[data-theme="dark"] .skill-tag {
+  color: var(--cyber-green);
+  border-color: rgba(0, 229, 160, 0.3);
+}
+
+/* Acentos en modo oscuro */
+[data-theme="dark"] .profile-card,
+[data-theme="dark"] .machine,
+[data-theme="dark"] .project-card {
+  box-shadow: var(--glow);
+}
+[data-theme="dark"] .profile-image {
+  box-shadow: 0 0 20px rgba(187, 134, 252, 0.3);
+}
+
+/* Iconos en la navegación de asignaturas */
+.nav-icon {
+  margin-right: var(--space-2);
+  flex-shrink: 0;
+}
+.subjects-nav a {
+  display: flex;
+  align-items: center;
+}
+
+/* Tarjetas de máquina enriquecidas */
+.machine-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+.machine-header h3 {
+  margin: 0;
+}
+.platform-badge {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  flex-shrink: 0;
+}
+
+.machine-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin: var(--space-3) 0;
+}
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background-color: var(--color-surface-alt);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+[data-theme="dark"] .tag {
+  background-color: var(--cyber-green-dim);
+  color: var(--cyber-green);
+  border-color: rgba(0, 229, 160, 0.2);
+}
+
+.machine-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+.btn-link {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 5px;
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: background-color var(--transition), color var(--transition);
+}
+.btn-link:hover {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  text-decoration: none;
+}
+
+@media (max-width: 480px) {
+  .terminal-prompt {
+    font-size: 0.72rem;
+    max-width: 40vw;
   }
 }

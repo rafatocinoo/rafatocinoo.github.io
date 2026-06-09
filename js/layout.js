@@ -61,6 +61,22 @@
     spacer.className = "site-header__spacer";
     header.appendChild(spacer);
 
+    // Prompt de terminal: ruta derivada de la URL (~/ciberseguridad[/seccion])
+    var prompt = document.createElement("span");
+    prompt.className = "terminal-prompt";
+    prompt.setAttribute("aria-hidden", "true");
+    var seg = window.location.pathname.replace(/^\/+|\/+$/g, "").split("/")[0];
+    prompt.textContent = "~/ciberseguridad" + (seg ? "/" + seg : "");
+    var cursor = document.createElement("span");
+    cursor.className = "term-cursor";
+    cursor.textContent = "▌";
+    prompt.appendChild(cursor);
+    header.appendChild(prompt);
+
+    var spacer2 = document.createElement("div");
+    spacer2.className = "site-header__spacer";
+    header.appendChild(spacer2);
+
     var toggle = document.createElement("button");
     toggle.type = "button";
     toggle.className = "theme-toggle";
