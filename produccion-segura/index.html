@@ -4,12 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Puesta en Producción Segura | Rafa Tocino</title>
-  <meta name="description" content="Despliegue y puesta en producción segura de aplicaciones. Sección en preparación.">
+  <meta name="description" content="Despliegue seguro y DevSecOps: pipeline CI/CD seguro, SAST/DAST/SCA, gestión de secretos, hardening de contenedores y OWASP.">
+  <meta name="keywords" content="DevSecOps, CI/CD, SAST, DAST, SCA, hardening, contenedores, OWASP, despliegue seguro">
   <meta name="author" content="Rafa Tocino">
+  <meta name="theme-color" content="#6200ea">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Puesta en Producción Segura | Rafa Tocino">
-  <meta property="og:description" content="Despliegue y puesta en producción segura. Sección en preparación.">
+  <meta property="og:description" content="DevSecOps: CI/CD seguro, SAST/DAST/SCA, secretos, hardening y OWASP.">
   <meta property="og:image" content="/img/portada.png">
   <meta property="og:url" content="https://rafatocinoo.github.io/produccion-segura/">
 
@@ -33,13 +35,68 @@
 <body data-page-title="Puesta en Producción Segura">
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <main class="container page" id="contenido">
+  <main class="container page wide" id="contenido">
     <h2 class="section-title">Puesta en Producción Segura</h2>
-    <div class="placeholder">
-      <p class="emoji" aria-hidden="true">🚧</p>
-      <p>Esta sección está en preparación. Pronto encontrarás aquí prácticas de despliegue seguro, CI/CD y hardening de entornos.</p>
-      <p><a href="/">Volver al inicio</a></p>
+    <p class="lead">
+      Llevar una aplicación a producción de forma segura significa integrar la
+      seguridad en todo el ciclo de desarrollo (DevSecOps), automatizando controles
+      en el pipeline en lugar de añadirlos al final.
+    </p>
+
+    <h3 class="section-title">Del código al despliegue</h3>
+    <ol class="steps">
+      <li><strong>Código seguro.</strong> Buenas prácticas, revisión por pares y análisis estático (SAST) para detectar fallos antes de compilar.</li>
+      <li><strong>Dependencias.</strong> Análisis de composición (SCA) y actualización automática para evitar librerías vulnerables.</li>
+      <li><strong>Construcción.</strong> Builds reproducibles, imágenes mínimas y firmadas, y gestión segura de secretos (nunca en el repositorio).</li>
+      <li><strong>Pruebas dinámicas.</strong> DAST sobre el entorno desplegado para encontrar vulnerabilidades en ejecución.</li>
+      <li><strong>Despliegue y hardening.</strong> Mínimo privilegio, configuración endurecida y red segmentada.</li>
+      <li><strong>Monitorización.</strong> Logs, métricas y alertas para detectar y responder a problemas en producción.</li>
+    </ol>
+
+    <h3 class="section-title">Prácticas y controles</h3>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Gestión de secretos</h3>
+        <p>Credenciales y claves fuera del código, en un gestor seguro y rotadas periódicamente.</p>
+        <div class="machine-tags"><span class="tag">Vault</span><span class="tag">Secrets</span><span class="tag">Rotación</span></div>
+      </div>
+      <div class="info-card">
+        <h3>Seguridad en contenedores</h3>
+        <p>Imágenes mínimas, escaneo de vulnerabilidades y usuarios sin privilegios.</p>
+        <div class="machine-tags"><span class="tag">Docker</span><span class="tag">Trivy</span><span class="tag">Mínimo privilegio</span></div>
+      </div>
+      <div class="info-card">
+        <h3>Hardening</h3>
+        <p>Reducir la superficie de ataque: desactivar servicios, aplicar parches y configuración segura.</p>
+        <div class="machine-tags"><span class="tag">CIS Benchmarks</span><span class="tag">Bastionado</span></div>
+      </div>
+      <div class="info-card">
+        <h3>OWASP</h3>
+        <p>Referencia para el desarrollo seguro web: riesgos del Top 10 y requisitos de verificación ASVS.</p>
+        <div class="machine-tags"><span class="tag">Top 10</span><span class="tag">ASVS</span><span class="tag">ZAP</span></div>
+      </div>
     </div>
+
+    <h3 class="section-title">Herramientas habituales</h3>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Análisis estático (SAST)</h3>
+        <p>Detección de fallos en el código fuente durante el desarrollo.</p>
+        <div class="machine-tags"><span class="tag">SonarQube</span><span class="tag">Semgrep</span></div>
+      </div>
+      <div class="info-card">
+        <h3>Análisis dinámico (DAST)</h3>
+        <p>Pruebas de seguridad sobre la aplicación en ejecución.</p>
+        <div class="machine-tags"><span class="tag">OWASP ZAP</span><span class="tag">Burp Suite</span></div>
+      </div>
+      <div class="info-card">
+        <h3>Dependencias (SCA)</h3>
+        <p>Vigilancia de vulnerabilidades en librerías de terceros.</p>
+        <div class="machine-tags"><span class="tag">Dependabot</span><span class="tag">Trivy</span></div>
+      </div>
+    </div>
+
+    <p><a href="/">← Volver al inicio</a></p>
   </main>
 
   <script src="/js/layout.js"></script>

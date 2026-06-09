@@ -4,12 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Incidentes de Ciberseguridad | Rafa Tocino</title>
-  <meta name="description" content="Gestión y respuesta ante incidentes de ciberseguridad. Sección en preparación.">
+  <meta name="description" content="Gestión y respuesta ante incidentes: ciclo de vida (NIST 800-61), tipos de incidente, marcos (ISO 27035, ENS) y herramientas de DFIR.">
+  <meta name="keywords" content="respuesta a incidentes, DFIR, NIST 800-61, ISO 27035, SIEM, forense, ciberseguridad">
   <meta name="author" content="Rafa Tocino">
+  <meta name="theme-color" content="#6200ea">
 
   <meta property="og:type" content="article">
   <meta property="og:title" content="Incidentes de Ciberseguridad | Rafa Tocino">
-  <meta property="og:description" content="Gestión y respuesta ante incidentes. Sección en preparación.">
+  <meta property="og:description" content="Ciclo de respuesta a incidentes, tipos, marcos y herramientas de DFIR.">
   <meta property="og:image" content="/img/portada.png">
   <meta property="og:url" content="https://rafatocinoo.github.io/incidentes-ciberseguridad/">
 
@@ -33,13 +35,74 @@
 <body data-page-title="Incidentes de Ciberseguridad">
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <main class="container page" id="contenido">
+  <main class="container page wide" id="contenido">
     <h2 class="section-title">Incidentes de Ciberseguridad</h2>
-    <div class="placeholder">
-      <p class="emoji" aria-hidden="true">🚧</p>
-      <p>Esta sección está en preparación. Pronto encontrarás aquí prácticas de gestión y respuesta ante incidentes.</p>
-      <p><a href="/">Volver al inicio</a></p>
+    <p class="lead">
+      La gestión de incidentes busca detectar, contener y recuperarse de eventos que
+      comprometen la confidencialidad, integridad o disponibilidad de los sistemas,
+      reduciendo el impacto y aprendiendo de cada caso para evitar su repetición.
+    </p>
+
+    <h3 class="section-title">Ciclo de vida de la respuesta</h3>
+    <p>Basado en la guía <strong>NIST SP 800-61</strong> y la norma <strong>ISO/IEC 27035</strong>:</p>
+    <ol class="steps">
+      <li><strong>Preparación.</strong> Políticas, equipo (CSIRT), playbooks, formación y herramientas listas antes del incidente.</li>
+      <li><strong>Detección y análisis.</strong> Identificar indicadores (IoC), correlacionar eventos y determinar alcance y severidad.</li>
+      <li><strong>Contención.</strong> Aislar sistemas afectados para frenar la propagación (contención a corto y largo plazo).</li>
+      <li><strong>Erradicación.</strong> Eliminar la causa raíz: malware, cuentas comprometidas o vulnerabilidades explotadas.</li>
+      <li><strong>Recuperación.</strong> Restaurar servicios desde copias limpias y verificar que el entorno vuelve a ser seguro.</li>
+      <li><strong>Lecciones aprendidas.</strong> Informe post-incidente, métricas y mejora de controles y procedimientos.</li>
+    </ol>
+
+    <h3 class="section-title">Tipos de incidente habituales</h3>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Malware y ransomware</h3>
+        <p>Infecciones que cifran o destruyen datos y exigen rescate.</p>
+        <div class="machine-tags"><span class="tag">Cifrado</span><span class="tag">Backups</span><span class="tag">EDR</span></div>
+      </div>
+      <div class="info-card">
+        <h3>Phishing e ingeniería social</h3>
+        <p>Engaño para robar credenciales o introducir malware.</p>
+        <div class="machine-tags"><span class="tag">Correo</span><span class="tag">Concienciación</span></div>
+      </div>
+      <div class="info-card">
+        <h3>Acceso no autorizado</h3>
+        <p>Intrusiones, abuso de privilegios o credenciales filtradas.</p>
+        <div class="machine-tags"><span class="tag">IAM</span><span class="tag">MFA</span></div>
+      </div>
+      <div class="info-card">
+        <h3>Fuga de datos</h3>
+        <p>Exfiltración de información sensible o personal.</p>
+        <div class="machine-tags"><span class="tag">DLP</span><span class="tag">RGPD</span></div>
+      </div>
+      <div class="info-card">
+        <h3>Denegación de servicio (DoS/DDoS)</h3>
+        <p>Saturación de recursos que tumba un servicio.</p>
+        <div class="machine-tags"><span class="tag">Disponibilidad</span><span class="tag">WAF</span></div>
+      </div>
     </div>
+
+    <h3 class="section-title">Marcos y herramientas (DFIR)</h3>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Detección y SIEM</h3>
+        <p>Centralización y correlación de logs para detectar amenazas.</p>
+        <div class="machine-tags"><span class="tag">Wazuh</span><span class="tag">Splunk</span><span class="tag">Elastic</span></div>
+      </div>
+      <div class="info-card">
+        <h3>Análisis forense</h3>
+        <p>Adquisición y análisis de evidencias de memoria, disco y red.</p>
+        <div class="machine-tags"><span class="tag">Volatility</span><span class="tag">Autopsy</span><span class="tag">Wireshark</span></div>
+      </div>
+      <div class="info-card">
+        <h3>Gestión y threat intel</h3>
+        <p>Coordinación del caso y enriquecimiento con inteligencia.</p>
+        <div class="machine-tags"><span class="tag">TheHive</span><span class="tag">MISP</span><span class="tag">MITRE ATT&amp;CK</span></div>
+      </div>
+    </div>
+
+    <p><a href="/">← Volver al inicio</a></p>
   </main>
 
   <script src="/js/layout.js"></script>

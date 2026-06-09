@@ -728,3 +728,81 @@ input:focus-visible,
     max-width: 40vw;
   }
 }
+
+/* =========================================================
+   Páginas de contenido (Incidentes, Normativas, Producción)
+   ========================================================= */
+.page.wide {
+  max-width: var(--max-width);
+}
+.lead {
+  font-size: 1.05rem;
+  color: var(--color-text);
+  margin: var(--space-3) 0 var(--space-6);
+  max-width: 70ch;
+}
+
+/* Tarjeta informativa (no enlazable) */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-5);
+  margin: var(--space-4) 0 var(--space-6);
+}
+.info-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+}
+[data-theme="dark"] .info-card {
+  box-shadow: var(--glow);
+}
+.info-card h3 {
+  margin: 0 0 var(--space-2);
+  color: var(--color-primary);
+  font-size: var(--fs-500);
+}
+.info-card p {
+  margin: 0 0 var(--space-3);
+  color: var(--color-text-muted);
+}
+
+/* Lista de fases numerada (ciclo de respuesta a incidentes) */
+.steps {
+  list-style: none;
+  counter-reset: step;
+  margin: var(--space-4) 0 var(--space-6);
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+.steps li {
+  counter-increment: step;
+  position: relative;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-4) var(--space-3) calc(var(--space-7) + var(--space-2));
+}
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.steps strong {
+  color: var(--color-primary);
+}
