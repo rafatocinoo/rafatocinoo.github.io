@@ -69,7 +69,10 @@
     });
     header.appendChild(toggle);
 
-    body.insertBefore(header, body.firstChild);
+    // Tras el enlace de salto (si existe) para que siga siendo el primer foco
+    var skip = body.querySelector(".skip-link");
+    var ref = skip ? skip.nextSibling : body.firstChild;
+    body.insertBefore(header, ref);
   }
 
   function buildFooter() {

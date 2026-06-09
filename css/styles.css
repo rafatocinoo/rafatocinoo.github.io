@@ -350,14 +350,15 @@ input:focus-visible,
   color: #fff;
   margin-bottom: var(--space-2);
 }
+/* Fondos sólidos oscuros: texto blanco con contraste AA en ambos temas */
 .difficulty--easy .difficulty__badge {
-  background-color: var(--diff-easy);
+  background-color: #1c7a43;
 }
 .difficulty--medium .difficulty__badge {
-  background-color: var(--diff-medium);
+  background-color: #8a5200;
 }
 .difficulty--hard .difficulty__badge {
-  background-color: var(--diff-hard);
+  background-color: #b02a2a;
 }
 .difficulty__bar {
   height: 8px;

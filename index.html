@@ -19,7 +19,8 @@
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"></noscript>
 
   <!-- Tema aplicado antes del primer pintado para evitar parpadeo -->
   <script>
@@ -41,7 +42,7 @@
     <div class="home-grid">
       <aside class="profile" aria-label="Perfil">
         <div class="profile-card">
-          <img src="/img/FOTO_PERFIL.jpg" alt="Foto de perfil de Rafa Tocino" class="profile-image" width="120" height="120">
+          <img src="/img/FOTO_PERFIL.jpg" alt="Foto de perfil de Rafa Tocino" class="profile-image" width="120" height="120" fetchpriority="high">
           <h1>Rafa Tocino</h1>
           <p class="job-title">Especialista en Ciberseguridad</p>
           <div class="social-links">
